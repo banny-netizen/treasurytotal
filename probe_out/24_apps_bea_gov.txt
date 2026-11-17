@@ -1,5 +1,0 @@
-URL: https://apps.bea.gov/api/data/?UserID=INVALID-KEY&method=GetData&datasetname=NIUnderlyingDetail&TableName=U20404&Frequency=M&Year=2026&ResultFormat=json
-MODE: head
-OK: 539바이트, 0.1초
-
-{"BEAAPI":{"Request":{"RequestParam":[{"ParameterName":"USERID","ParameterValue":"INVALID-KEY"},{"ParameterName":"METHOD","ParameterValue":"GETDATA"},{"ParameterName":"DATASETNAME","ParameterValue":"NIUNDERLYINGDETAIL"},{"ParameterName":"TABLENAME","ParameterValue":"U20404"},{"ParameterName":"FREQUENCY","ParameterValue":"M"},{"ParameterName":"YEAR","ParameterValue":"2026"},{"ParameterName":"RESULTFORMAT","ParameterValue":"JSON"}]},"Results":{"Error":{"APIErrorCode":"1","APIErrorDescription":"Invalid Request - Invalid API UserId."}}}}
