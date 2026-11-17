@@ -1,0 +1,40 @@
+{
+  "hosts": {
+    "markets.newyorkfed.org": "뉴욕 연은 Markets API — EFFR, SOFR(백분위 포함)",
+    "www.newyorkfed.org": "뉴욕 연은 — 분기 가계신용 보고서 인터랙티브 자료",
+    "data-api.ecb.europa.eu": "유럽중앙은행 Data API — €STR, 수신금리(DFR)",
+    "www.stat-search.boj.or.jp": "일본은행 시계열 통계 API — 무담보 콜 익일물(TONA)",
+    "ecos.bok.or.kr": "한국은행 ECOS Open API — 콜금리, KOFR, 기준금리",
+    "fred.stlouisfed.org": "세인트루이스 연은 FRED — 미국 거시 시계열(CSV 내려받기)",
+    "api.db.nomics.world": "DBnomics — ISM PMI, BEA 표(공개 재배포본)",
+    "home.treasury.gov": "미 재무부 — 일별 국채 수익률 곡선",
+    "api.fiscaldata.treasury.gov": "미 재무부 Fiscal Data — 월간 국가채무 명세(MSPD)",
+    "www.federalreserve.gov": "미 연준 — FOMC 일정, 경제전망(SEP) 표",
+    "insight.factset.com": "FactSet Earnings Insight — S&P 500 선행 PER(공개 주간 보고서)",
+    "www.traditionkorea.com": "트래디션 서울 — 일별 마감 보고서 게시 목록(링크만 수집)",
+    "apps.bea.gov": "미 경제분석국 BEA API — PCE 세부 품목 가격지수(키 필요)",
+    "api.bls.gov": "미 노동통계국 BLS API — CPI 세부 지수",
+    "www.bls.gov": "미 노동통계국 — CPI 보도자료 표(상대 중요도)",
+    "www.ecb.europa.eu": "유럽중앙은행 — 통화정책회의 일정",
+    "www.boj.or.jp": "일본은행 — 금융정책결정회의 일정",
+    "www.bok.or.kr": "한국은행 — 금융통화위원회 일정"
+  },
+  "outputs": [
+    "_status.json",
+    "rates.json",
+    "macro.json",
+    "pce.json",
+    "delinq.json",
+    "fiscal.json",
+    "refix.json",
+    "growth.json",
+    "fedmodel.json",
+    "infl.json",
+    "cbank.json",
+    "dots.json",
+    "mm.json"
+  ],
+  "identifiers": [
+    "http://www.w3.org/2000/svg"
+  ]
+}

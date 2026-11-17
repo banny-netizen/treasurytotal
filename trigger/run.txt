@@ -1,0 +1,2 @@
+all
+# 이 파일 첫 줄을 고쳐 main에 올리면 그 묶음을 바로 수집한다 (daily, mm, weekly, all 또는 출처 이름).

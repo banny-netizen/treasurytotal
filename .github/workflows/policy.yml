@@ -1,0 +1,24 @@
+name: policy-check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/data/**"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: 정책 점검
+        run: python3 scripts/check_policy.py
+
+      - name: 단위 테스트
+        run: python3 -m unittest discover -s tests -v
