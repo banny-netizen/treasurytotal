@@ -5,11 +5,14 @@ probe_urls.txt 한 줄에 "<방식> <주소>" 를 적는다. 방식을 생략하
   head    앞 4,000자 + 끝 1,000자
   tables  HTML 표만 (표마다 앞 70행)
   links   HTML 링크 목록만
-  pdf     PDF에서 뽑은 글자 중 확인에 필요한 줄만
+  pdf     PDF에서 뽑은 글자 중 확인에 필요한 줄과 그 앞뒤 두 줄
+  text    HTML에서 태그를 뗀 글자 (주소 끝에 "#@표시어" 를 붙이면 그 말이 처음 나오는 곳부터 14,000자)
+  dbn     DBnomics 응답에서 시리즈별 이름과 마지막 세 값만
 결과는 probe_out/ 에 쓴다. probe/ 브랜치에서만 쓰고 main 에는 두지 않는다.
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 import time
@@ -20,17 +23,32 @@ import pdftext
 
 OUT = common.ROOT / "probe_out"
 FULL_LIMIT = 300_000
-MODES = {"full", "head", "tables", "links", "pdf"}
+MODES = {"full", "head", "tables", "links", "pdf", "text", "dbn"}
 PDF_KEYS = re.compile(r"P/E|forward 12|closing price|year average", re.I)
 
 
-def render(mode: str, body: bytes) -> str:
+def render(mode: str, body: bytes, marker: str = "") -> str:
     if mode == "pdf" or body[:5] == b"%PDF-":
         text = pdftext.extract(body)
-        lines = [line.strip() for line in text.splitlines() if PDF_KEYS.search(line)]
-        return (f"[pdf] 글자 {len(text)}자, 해당 줄 {len(lines)}개\n"
-                + "\n".join(line[:400] for line in lines[:40]))
+        lines = [line.strip() for line in text.splitlines() if line.strip()]
+        keep: set[int] = set()
+        hits = [i for i, line in enumerate(lines) if re.search(r"P/E ratio|closing price", line, re.I)]
+        for i in hits[:14]:
+            keep.update(range(max(0, i - 2), min(len(lines), i + 4)))
+        return (f"[pdf] 글자 {len(text)}자, 줄 {len(lines)}개, 해당 줄 {len(hits)}개\n"
+                + "\n".join(f"{i}: {lines[i][:200]}" for i in sorted(keep)))
     text = common.decode_text(body)
+    if mode == "dbn":
+        docs = json.loads(text)["series"]["docs"]
+        return f"시리즈 {len(docs)}개\n" + "\n".join(
+            f"{d.get('series_code')} | {d.get('series_name', '')[:110]} | "
+            f"{d.get('period', [])[-3:]} | {d.get('value', [])[-3:]}" for d in docs)
+    if mode == "text":
+        plain = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", text)
+        plain = re.sub(r"(?s)<[^>]+>", "\n", plain)
+        plain = "\n".join(line.strip() for line in plain.splitlines() if line.strip())
+        start = plain.find(marker) if marker else 0
+        return plain[max(start, 0):max(start, 0) + 14000]
     if mode == "tables":
         out = []
         for number, (caption, rows) in enumerate(common.html_tables(text, with_captions=True), 1):
@@ -52,10 +70,11 @@ def render(mode: str, body: bytes) -> str:
 def probe(number: int, mode: str, url: str) -> str:
     header = [f"URL: {url}", f"MODE: {mode}"]
     started = time.time()
+    url, _, marker = url.partition("#@")
     try:
         body = common.fetch(url, retries=2)
         header.append(f"OK: {len(body)}바이트, {time.time() - started:.1f}초")
-        content = render(mode, body)
+        content = render(mode, body, marker)
     except Exception as exc:
         header.append(f"FAIL: {type(exc).__name__}: {exc}")
         content = ""

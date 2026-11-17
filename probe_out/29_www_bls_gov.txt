@@ -1,5 +1,0 @@
-URL: https://www.bls.gov/news.release/cpi.t01.htm
-MODE: tables
-FAIL: FetchError: 수집 실패: www.bls.gov (HTTP 403)
-
-
