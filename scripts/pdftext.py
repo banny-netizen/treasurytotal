@@ -60,9 +60,9 @@ def _unescape(raw: bytes) -> bytes:
                 out += _ESCAPES[nxt]
                 i += 2
                 continue
-            if nxt.isdigit():
+            if nxt in b"01234567":            # 8진수 표기 (최대 세 자리)
                 j = i + 1
-                while j < len(raw) and j < i + 4 and raw[j:j + 1].isdigit():
+                while j < len(raw) and j < i + 4 and raw[j:j + 1] in b"01234567":
                     j += 1
                 out.append(int(raw[i + 1:j], 8) & 0xFF)
                 i = j

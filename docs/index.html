@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>treasurytotal — 거시·금리 지표</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="viz-root">
+<div class="shell">
+  <aside class="rail" id="rail">
+    <div class="brand">
+      <h1>treasurytotal</h1>
+      <p>공개 자료로 보는 거시·금리 지표</p>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false">메뉴 열기</button>
+    <nav id="nav" aria-label="메뉴"></nav>
+    <p class="rail-foot">각국 중앙은행·정부 통계기관이 공개한 자료를 자동으로 받아 보여 줍니다. 참고용이며 투자 권유가 아닙니다.</p>
+  </aside>
+  <main>
+    <div class="topbar">
+      <h2 id="title"></h2>
+      <span class="desc" id="desc"></span>
+      <span class="fresh" id="fresh"></span>
+      <button class="btn" id="refresh" type="button">자료 다시 불러오기</button>
+    </div>
+    <div id="view"></div>
+  </main>
+</div>
+<script src="chart.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

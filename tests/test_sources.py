@@ -177,6 +177,10 @@ class FedModelTest(unittest.TestCase):
         got = src_fedmodel.read_report(pdftext.extract(pdf))
         self.assertEqual((got["per"], got["a5"]), (21.9, 19.8))
 
+    def test_pdf_escapes(self):
+        # 역슬래시 뒤 숫자가 8진수가 아닌 경우(\\9)에도 멈추지 않아야 한다
+        self.assertEqual(pdftext._unescape(b"a\\9b\\050c\\)"), b"a9b(c)")
+
     def test_candidates_and_pairing(self):
         days = src_fedmodel.candidates(date(2026, 10, 30), date(2026, 11, 17))
         self.assertEqual([d.isoformat() for d in days], ["2026-11-06", "2026-11-13"])
