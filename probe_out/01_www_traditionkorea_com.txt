@@ -1,0 +1,16 @@
+URL: https://www.traditionkorea.com/marketData.html
+MODE: tables
+OK: 25554바이트, 1.4초
+
+--- 표 1: 11행 | 
+# | Title | Date | File | Down
+630 | Daily Report (20261117) | 2026년 11월 17일 | View | 다운로드
+629 | Daily Report (20261116) | 2026년 11월 16일 | View | 다운로드
+628 | Daily Report (20261113) | 2026년 11월 13일 | View | 다운로드
+627 | Daily Report (20261112) | 2026년 11월 12일 | View | 다운로드
+626 | Daily Report (20261111) | 2026년 11월 11일 | View | 다운로드
+625 | Daily Report (20261110) | 2026년 11월 10일 | View | 다운로드
+624 | Daily Report (20261109) | 2026년 11월 09일 | View | 다운로드
+623 | Daily Report (20261106) | 2026년 11월 06일 | View | 다운로드
+622 | Daily Report (20261105) | 2026년 11월 05일 | View | 다운로드
+621 | Daily Report (20261104) | 2026년 11월 04일 | View | 다운로드

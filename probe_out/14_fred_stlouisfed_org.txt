@@ -1,0 +1,5 @@
+URL: https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SA0L1E&cosd=2026-01-01
+MODE: full
+FAIL: FetchError: 수집 실패: fred.stlouisfed.org (HTTP 404)
+
+

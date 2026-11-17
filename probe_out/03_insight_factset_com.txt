@@ -1,0 +1,81 @@
+URL: https://insight.factset.com/hubfs/Website/Resources%20Section/Research%20Desk/Earnings%20Insight/EarningsInsight_111326.pdf
+MODE: pdf
+OK: 1220006바이트, 0.1초
+
+[pdf] 글자 54869자, 줄 4102개, 해당 줄 16개
+131: The forward 12
+132: -
+133: month P/E ratio for the S&P 500 is
+134: 1
+135: 8
+136: .
+137: 3
+138: . This P/E ratio is
+139: below
+140: the 5
+141: -
+285: Forward 12
+286: -
+287: Month P/E Ratio
+288: 3
+289: 4
+290: Trailing 12
+291: -
+292: Month P/E Ratio
+293: 3
+294: 6
+295: Target & Ratings
+1250: The forward 12
+1251: -
+1252: month P/E ratio is
+1253: 1
+1254: 8
+1255: .
+1273: ).
+1274: T
+1275: his P/E ratio is
+1276: also below
+1277: the forward P/E ratio of
+1278: 19
+1279: .
+1280: 0
+3598: 0
+3599: %.
+3600: Valuation: Forward P/E Ratio is
+3601: 1
+3602: 8
+3603: .
+3615: The forward 12
+3616: -
+3617: month P/E ratio for the S&P 500 is
+3618: 1
+3619: 8
+3620: .
+3621: 3
+3622: . This P/E ratio is
+3623: below
+3624: the 5
+3625: -
+3642: the forward 12
+3643: -
+3644: month P/E ratio of
+3645: 19
+3646: .
+3647: 0
+3705: the highest forward 12
+3706: -
+3707: month P/E ratio
+3708: s
+3709: , while the
+3710: Energy (1
+3724: the lowest forward 12
+3725: -
+3726: month P/E ratio
+3727: s
+3728: .
+3729: The trailing 12
+3730: -
+3731: month P/E ratio is 2
+3732: 5
+3733: .
+3734: 4
