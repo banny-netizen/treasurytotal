@@ -148,7 +148,6 @@ details.more > summary { cursor: pointer; color: var(--ink2); font-size: 12.5px;
 .tag { display: inline-block; white-space: nowrap; font-size: 11px; border: 1px solid var(--border); border-radius: 5px; padding: 0 5px; color: var(--ink2); margin-left: 4px; }
 .status-ok::before, .status-bad::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; background: var(--s3); }
 .status-bad::before { background: var(--s2); border-radius: 2px; }
-.frame { width: 100%; height: 78vh; min-height: 520px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
 .bar-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-bottom: 10px; }
 a.plain { color: var(--ink); }
 

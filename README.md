@@ -10,7 +10,7 @@
 2. 내부 자료(잔고, 거래 내역, 한도, 내부 문서)는 일절 올리지 않는다.
 3. 수집 대상은 `config/allowlist.json`에 등록된 주소로 한정한다.
 4. API 키는 저장소 Secrets에만 둔다. 파일·커밋·로그에 적지 않는다.
-5. 제3자가 만든 보고서 본문은 저장하지 않는다. 필요한 숫자만 읽거나, 원문 주소만 모아 원문 사이트에서 열게 한다.
+5. 제3자가 만든 보고서 본문은 저장하지 않는다. 필요한 숫자만 읽는다.
 
 정책은 코드로도 막아 둔다.
 
@@ -24,7 +24,6 @@
 |---|---|---|
 | 통화별 지표금리 | EFFR·SOFR·목표범위, €STR·ECB 수신금리, TONA, 콜금리·KOFR | 뉴욕 연은, ECB, 일본은행, 한국은행 ECOS |
 | 자금조달 여건 | SOFR 75백분위 − IORB, KOFR − 콜금리 | 뉴욕 연은, FRED, ECOS |
-| 머니마켓 마감시황 | 일별 마감 보고서(원문 열람, 목록만 보관) | 트래디션 서울 게시판 |
 | 통화정책회의 일정·점도표 | 연준·ECB·일본은행·한국은행 회의 일정과 결과, 연준 SEP 점 분포 | 각 중앙은행 일정 페이지, FRED, ECB, ECOS, 연준 SEP 표 |
 | 인플레이션 확산 지표 | PCE 16개 품목군 중 상승률이 기준을 넘는 품목군의 지출 비중 | BEA (DBnomics 경유) |
 | CPI·PCE 발표 수치 | 회차별 전월비·전년비, PCE 항목별 가중치·기여도 | BLS (FRED 경유), BEA (DBnomics 경유) |
@@ -49,7 +48,7 @@
 config/allowlist.json          수집 허용 주소, 산출 파일 목록
 scripts/common.py              허용 목록 검사, 호출·파싱 공용 함수
 scripts/collect.py             수집 진입점 (출처별로 따로 받아 쓴다)
-scripts/src_<이름>.py          출처별 수집: rates, cbank, macro, infl, delinq, fiscal, growth, fedmodel, mm
+scripts/src_<이름>.py          출처별 수집: rates, cbank, macro, infl, delinq, fiscal, growth, fedmodel
 scripts/fred.py, pdftext.py    FRED 내려받기, PDF 글자 추출
 scripts/check_policy.py        정책 점검
 scripts/probe.py               새 출처 응답 확인 (probe/ 브랜치에서만 실행)
@@ -65,12 +64,11 @@ trigger/run.txt                첫 줄을 고쳐 올리면 그 묶음을 바로 
 | 시각 | 묶음 | 내용 |
 |---|---|---|
 | 월~토 13:37 | `daily` | 금리, 회의 일정·점도표, 경제지표, 물가 발표·확산, 연체율, 재정·리프라이싱, 성장률 |
-| 평일 17:23 | `mm` | 머니마켓 마감 보고서 목록 |
 | 월 13:53 | `weekly` | 연준 모델 |
 
 - 한 출처가 실패해도 나머지는 진행하고, 실패한 출처는 직전 수집분을 남긴다.
 - 내용이 바뀐 파일만 다시 쓴다. 월·분기 자료도 매일 점검하고 바뀐 때에만 갱신한다.
-- 수동 실행: Actions 화면에서 `collect`를 직접 실행하거나, `trigger/run.txt` 첫 줄(`all`, `daily`, `mm`, `weekly` 또는 출처 이름)을 고쳐 `main`에 올린다.
+- 수동 실행: Actions 화면에서 `collect`를 직접 실행하거나, `trigger/run.txt` 첫 줄(`all`, `daily`, `weekly` 또는 출처 이름)을 고쳐 `main`에 올린다.
 
 ## 처음 설정
 

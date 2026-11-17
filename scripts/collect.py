@@ -1,7 +1,7 @@
 """수집 진입점. 출처별로 따로 받아 docs/data/ 에 쓴다.
 
 사용: python3 scripts/collect.py [묶음 또는 출처 이름 ...]
-      묶음: daily(기본), mm, weekly, all
+      묶음: daily(기본), weekly, all
 
 - 한 출처가 실패해도 나머지는 진행하고, 실패한 출처는 직전 수집분을 그대로 둔다.
 - 내용이 바뀐 파일만 다시 쓴다.
@@ -21,7 +21,6 @@ import src_fiscal
 import src_growth
 import src_infl
 import src_macro
-import src_mm
 import src_rates
 
 SOURCES = {
@@ -33,11 +32,9 @@ SOURCES = {
     "fiscal": src_fiscal,
     "growth": src_growth,
     "fedmodel": src_fedmodel,
-    "mm": src_mm,
 }
 GROUPS = {
     "daily": ["rates", "cbank", "macro", "infl", "delinq", "fiscal", "growth"],
-    "mm": ["mm"],
     "weekly": ["fedmodel"],
     "all": list(SOURCES),
 }

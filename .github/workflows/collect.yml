@@ -3,12 +3,11 @@ name: collect
 on:
   schedule:
     - cron: "37 4 * * 1-6"   # 월~토 13:37 KST — 일별 묶음 (금리, 회의 일정·점도표, 경제지표, 물가 발표, 연체율, 재정, 성장률)
-    - cron: "23 8 * * 1-5"   # 평일 17:23 KST — 머니마켓 마감 보고서 목록
     - cron: "53 4 * * 1"     # 월 13:53 KST — 연준 모델 (주간 보고서)
   workflow_dispatch:
     inputs:
       groups:
-        description: "수집할 묶음 또는 출처 (daily, mm, weekly, all, rates ...). 띄어쓰기로 여러 개"
+        description: "수집할 묶음 또는 출처 (daily, weekly, all, rates ...). 띄어쓰기로 여러 개"
         default: "all"
   push:
     branches: [main]
@@ -40,7 +39,6 @@ jobs:
         run: |
           case "$SCHEDULE" in
             "37 4 * * 1-6") groups="daily" ;;
-            "23 8 * * 1-5") groups="mm" ;;
             "53 4 * * 1") groups="weekly" ;;
             *) groups="$GROUPS_INPUT" ;;
           esac

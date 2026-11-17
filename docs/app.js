@@ -163,21 +163,6 @@
     view.append(h('p', { class: 'note', text: '출처: 뉴욕 연은(SOFR 백분위), FRED(IORB), 한국은행 ECOS(콜금리·KOFR).' }));
   }
 
-  function buildMm(view, D) {
-    const reports = (D.mm && D.mm.reports) || [];
-    if (!reports.length) { view.append(empty('아직 받은 보고서 목록이 없습니다.')); return; }
-    const frame = h('iframe', { class: 'frame', title: '머니마켓 마감 보고서' });
-    const open = h('a', { class: 'btn', target: '_blank', rel: 'noopener', text: '원문 PDF 새 창에서 열기' });
-    const pick = h('select', { class: 'pick', 'aria-label': '보고서 날짜' }, reports.map((r) => h('option', { value: r.url, text: r.date })));
-    const show = () => { frame.src = pick.value + '#page=1&view=FitH'; open.href = pick.value; };
-    pick.addEventListener('change', show);
-    view.append(h('div', { class: 'bar-row' }, pick, open,
-      h('a', { class: 'btn', href: D.mm.board, target: '_blank', rel: 'noopener', text: '게시판 열기' })));
-    view.append(frame);
-    view.append(h('p', { class: 'note', text: '트래디션 서울이 게시한 일별 마감 보고서를 원문 사이트에서 그대로 엽니다. 이 사이트는 날짜와 주소 목록만 보관합니다. 보고서가 보이지 않으면 "원문 PDF 새 창에서 열기"를 누르세요.' }));
-    show();
-  }
-
   /* ---------- 통화정책 ---------- */
   function buildCbank(view, D) {
     const today = new Date().toISOString().slice(0, 10);
@@ -480,7 +465,6 @@
       TT.table([{ label: '출처' }, { label: '상태' }, { label: '최근 자료' }, { label: '마지막 점검' }, { label: '마지막 변경' }, { label: '경고·오류' }], rows, { tall: true })));
     view.append(card('수집 일정', null, h('ul', null,
       h('li', { text: '월~토 13:37 — 금리, 회의 일정·점도표, 경제지표, 물가 발표, 연체율, 재정·리프라이싱, 성장률' }),
-      h('li', { text: '평일 17:23 — 머니마켓 마감 보고서 목록' }),
       h('li', { text: '월요일 13:53 — 연준 모델(주간 보고서)' })),
       h('p', { class: 'note', text: '한 출처가 실패해도 나머지는 그대로 진행하고, 실패한 출처는 직전 수집분을 보여 줍니다. 상대 서버가 호출을 막으면 돌아가지 않고 그 출처만 실패로 남깁니다.' })));
   }
@@ -489,8 +473,7 @@
   const MENUS = [
     { group: '금리', items: [
       { id: 'rates', title: '통화별 지표금리', desc: '달러·유로·엔·원 익일물 지표금리', files: ['rates'], src: 'rates', build: buildRates },
-      { id: 'funding', title: '자금조달 여건', desc: '담보·무담보 익일물 금리 차이로 보는 단기자금 사정', files: ['rates'], src: 'rates', build: buildFunding },
-      { id: 'mm', title: '머니마켓 마감시황', desc: '일별 마감 보고서(원문 열람)', files: ['mm'], src: 'mm', build: buildMm }] },
+      { id: 'funding', title: '자금조달 여건', desc: '담보·무담보 익일물 금리 차이로 보는 단기자금 사정', files: ['rates'], src: 'rates', build: buildFunding }] },
     { group: '통화정책', items: [
       { id: 'cbank', title: '통화정책회의 일정·점도표', desc: '연준·ECB·일본은행·한국은행 회의 일정과 결과, 연준 점도표', files: ['cbank', 'dots'], src: 'cbank', build: buildCbank }] },
     { group: '물가', items: [

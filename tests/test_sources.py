@@ -18,7 +18,6 @@ import src_fiscal  # noqa: E402
 import src_growth  # noqa: E402
 import src_infl  # noqa: E402
 import src_macro  # noqa: E402
-import src_mm  # noqa: E402
 import src_rates  # noqa: E402
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
@@ -279,19 +278,6 @@ class CentralBankTest(unittest.TestCase):
         merged = src_cbank.merge_meetings(old, new, TODAY)
         self.assertEqual([m["date"] for m in merged], ["2026-02-05", "2026-12-17"])
         self.assertEqual(merged[0]["result"], "동결")
-
-
-class MoneyMarketTest(unittest.TestCase):
-    def test_board(self):
-        reports = src_mm.parse(text("tradition_board.html"))
-        self.assertEqual(len(reports), 10)
-        self.assertEqual(reports[0]["date"], "2026-11-17")
-        self.assertTrue(reports[0]["url"].startswith("https://www.traditionkorea.com/data/files/"))
-
-    def test_other_host_is_dropped(self):
-        html = ('<table><tr><td>Daily Report (20261117)</td>'
-                '<td><a href="https://example.com/x.pdf">View</a></td></tr></table>')
-        self.assertEqual(src_mm.parse(html), [])
 
 
 if __name__ == "__main__":

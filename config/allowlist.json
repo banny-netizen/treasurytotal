@@ -11,7 +11,6 @@
     "api.fiscaldata.treasury.gov": "미 재무부 Fiscal Data — 월간 국가채무 명세(MSPD)",
     "www.federalreserve.gov": "미 연준 — FOMC 일정, 경제전망(SEP) 표",
     "insight.factset.com": "FactSet Earnings Insight — S&P 500 선행 PER(공개 주간 보고서)",
-    "www.traditionkorea.com": "트래디션 서울 — 일별 마감 보고서 게시 목록(링크만 수집)",
     "apps.bea.gov": "미 경제분석국 BEA API — PCE 세부 품목 가격지수(키 필요)",
     "api.bls.gov": "미 노동통계국 BLS API — CPI 세부 지수",
     "www.bls.gov": "미 노동통계국 — CPI 보도자료 표(상대 중요도)",
@@ -31,8 +30,7 @@
     "fedmodel.json",
     "infl.json",
     "cbank.json",
-    "dots.json",
-    "mm.json"
+    "dots.json"
   ],
   "identifiers": [
     "http://www.w3.org/2000/svg"
