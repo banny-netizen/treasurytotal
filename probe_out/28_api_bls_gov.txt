@@ -1,0 +1,8 @@
+URL: https://api.bls.gov/publicAPI/v2/timeseries/data/CUSR0000SA0?latest=true
+MODE: full
+OK: 228바이트, 0.2초
+
+{"status":"REQUEST_SUCCEEDED","responseTime":15,"message":[],"Results":{
+"series":
+[{"seriesID":"CUSR0000SA0","data":[{"year":"2026","period":"M10","periodName":"October","latest":"true","value":"337.476","footnotes":[{}]}]}]
+}}

@@ -1,0 +1,331 @@
+URL: https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm
+MODE: tables
+OK: 241407바이트, 0.1초
+
+--- 표 1: 13행 | 
+Variable | Median1 | Central Tendency2 | Range3
+2026 | 2027 | 2028 | 2029 | Longer run | 2026 | 2027 | 2028 | 2029 | Longer run | 2026 | 2027 | 2028 | 2029 | Longer run
+Change in real GDP | 2.3 | 2.4 | 2.2 | 2.1 | 2.0 | 2.2–2.4 | 2.2–2.6 | 2.1–2.3 | 2.0–2.2 | 2.0–2.2 | 2.1–2.6 | 2.0–2.9 | 1.8–2.6 | 1.8–2.4 | 1.7–2.5
+June projection | 2.2 | 2.3 | 2.2 |  | 2.0 | 2.0–2.3 | 2.0–2.4 | 2.0–2.3 |  | 1.8–2.0 | 1.8–2.6 | 1.9–2.9 | 1.8–2.6 |  | 1.7–2.5
+Unemployment rate | 4.1 | 4.1 | 4.1 | 4.1 | 4.2 | 4.1–4.2 | 4.0–4.2 | 4.0–4.2 | 4.0–4.3 | 4.0–4.3 | 4.0–4.3 | 4.0–4.5 | 3.9–4.4 | 3.8–4.4 | 3.8–4.4
+June projection | 4.3 | 4.3 | 4.2 |  | 4.2 | 4.3–4.4 | 4.2–4.5 | 4.1–4.3 |  | 4.0–4.3 | 4.3–4.6 | 4.0–4.6 | 4.0–4.4 |  | 3.8–4.5
+PCE inflation | 3.7 | 2.3 | 2.1 | 2.0 | 2.0 | 3.5–3.7 | 2.2–2.5 | 2.0–2.2 | 2.0 | 2.0 | 2.9–3.8 | 2.0–2.6 | 2.0–2.2 | 2.0 | 2.0
+June projection | 3.6 | 2.3 | 2.0 |  | 2.0 | 3.5–3.7 | 2.2–2.5 | 2.0–2.1 |  | 2.0 | 2.7–4.1 | 1.9–2.8 | 2.0–2.3 |  | 2.0
+Core PCE inflation4 | 3.4 | 2.5 | 2.2 | 2.0 |  | 3.3–3.4 | 2.3–2.6 | 2.0–2.2 | 2.0 |  | 2.8–3.5 | 2.1–2.7 | 2.0–2.3 | 2.0–2.1 | 
+June projection | 3.3 | 2.5 | 2.1 |  |  | 3.2–3.5 | 2.3–2.6 | 2.0–2.2 |  |  | 2.6–3.5 | 2.0–3.0 | 2.0–2.4 |  | 
+Memo: Projected appropriate policy path
+Federal funds rate | 4.1 | 4.1 | 3.9 | 3.6 | 3.2 | 4.1–4.4 | 3.6–4.4 | 3.1–4.1 | 3.1–3.6 | 3.0–3.6 | 3.9–4.4 | 3.1–4.4 | 3.1–4.1 | 2.9–3.9 | 2.9–3.9
+June projection | 3.8 | 3.6 | 3.4 |  | 3.1 | 3.6–4.1 | 3.1–3.9 | 3.1–3.6 |  | 3.0–3.5 | 3.4–4.4 | 2.9–4.4 | 2.9–3.9 |  | 2.9–3.9
+--- 표 2: 7행 | 
+ | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 | 2029 | Longer run
+Actual | 5.8 | 1.3 | 3.4 | 2.4 | 2.0 | - | - | - | - | -
+Upper End of Range | - | - | - | - | - | 2.6 | 2.9 | 2.6 | 2.4 | 2.5
+Upper End of Central Tendency | - | - | - | - | - | 2.4 | 2.6 | 2.3 | 2.2 | 2.2
+Median | - | - | - | - | - | 2.3 | 2.4 | 2.2 | 2.1 | 2.0
+Lower End of Central Tendency | - | - | - | - | - | 2.2 | 2.2 | 2.1 | 2.0 | 2.0
+Lower End of Range | - | - | - | - | - | 2.1 | 2.0 | 1.8 | 1.8 | 1.7
+--- 표 3: 7행 | 
+ | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 | 2029 | Longer run
+Actual | 4.2 | 3.6 | 3.8 | 4.1 | 4.5 | - | - | - | - | -
+Upper End of Range | - | - | - | - | - | 4.3 | 4.5 | 4.4 | 4.4 | 4.4
+Upper End of Central Tendency | - | - | - | - | - | 4.2 | 4.2 | 4.2 | 4.3 | 4.3
+Median | - | - | - | - | - | 4.1 | 4.1 | 4.1 | 4.1 | 4.2
+Lower End of Central Tendency | - | - | - | - | - | 4.1 | 4.0 | 4.0 | 4.0 | 4.0
+Lower End of Range | - | - | - | - | - | 4.0 | 4.0 | 3.9 | 3.8 | 3.8
+--- 표 4: 7행 | 
+ | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 | 2029 | Longer run
+Actual | 5.8 | 6.0 | 2.9 | 2.6 | 2.8 | - | - | - | - | -
+Upper End of Range | - | - | - | - | - | 3.8 | 2.6 | 2.2 | 2.0 | 2.0
+Upper End of Central Tendency | - | - | - | - | - | 3.7 | 2.5 | 2.2 | 2.0 | 2.0
+Median | - | - | - | - | - | 3.7 | 2.3 | 2.1 | 2.0 | 2.0
+Lower End of Central Tendency | - | - | - | - | - | 3.5 | 2.2 | 2.0 | 2.0 | 2.0
+Lower End of Range | - | - | - | - | - | 2.9 | 2.0 | 2.0 | 2.0 | 2.0
+--- 표 5: 7행 | 
+ | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 | 2029
+Actual | 4.8 | 5.2 | 3.3 | 3.0 | 2.9 | - | - | - | -
+Upper End of Range | - | - | - | - | - | 3.5 | 2.7 | 2.3 | 2.1
+Upper End of Central Tendency | - | - | - | - | - | 3.4 | 2.6 | 2.2 | 2.0
+Median | - | - | - | - | - | 3.4 | 2.5 | 2.2 | 2.0
+Lower End of Central Tendency | - | - | - | - | - | 3.3 | 2.3 | 2.0 | 2.0
+Lower End of Range | - | - | - | - | - | 2.8 | 2.1 | 2.0 | 2.0
+--- 표 6: 16행 | 
+Midpoint of target range or target level (Percent) | 2026 | 2027 | 2028 | 2029 | Longer run
+4.500 |  |  |  |  | 
+4.375 | 4 | 8 |  |  | 
+4.250 |  |  |  |  | 
+4.125 | 12 | 6 | 4 |  | 
+4.000 |  |  |  |  | 
+3.875 | 2 |  | 5 | 3 | 2
+3.750 |  |  |  |  | 1
+3.625 |  | 3 | 3 | 7 | 2
+3.500 |  |  |  |  | 2
+3.375 |  |  | 1 | 2 | 1
+3.250 |  |  |  |  | 2
+3.125 |  | 1 | 4 | 4 | 1
+3.000 |  |  |  |  | 6
+2.875 |  |  |  | 1 | 1
+2.750 |  |  |  |  | 
+--- 표 7: 10행 | 
+Percent Range | 2026 | 2027 | 2028 | 2029 | Longer Run
+June projections | September projections | June projections | September projections | June projections | September projections | September projections | June projections | September projections
+1.4- 1.5 |  |  |  |  |  |  |  |  | 
+1.6- 1.7 |  |  |  |  |  |  |  | 2 | 1
+1.8- 1.9 | 1 |  | 1 |  | 2 | 2 | 2 | 3 | 2
+2.0- 2.1 | 6 | 1 | 3 | 3 | 5 | 2 | 8 | 12 | 10
+2.2- 2.3 | 9 | 11 | 9 | 6 | 7 | 10 | 6 |  | 4
+2.4- 2.5 | 1 | 5 | 3 | 5 | 2 | 2 | 1 | 1 | 1
+2.6- 2.7 | 1 | 1 | 1 | 3 | 1 | 1 |  |  | 
+2.8- 2.9 |  |  | 1 | 1 |  |  |  |  | 
+--- 표 8: 8행 | 
+Percent Range | 2026 | 2027 | 2028 | 2029 | Longer Run
+June projections | September projections | June projections | September projections | June projections | September projections | September projections | June projections | September projections
+3.6- 3.7 |  |  |  |  |  |  |  |  | 
+3.8- 3.9 |  |  |  |  |  | 2 | 1 | 1 | 1
+4.0- 4.1 |  | 10 | 2 | 10 | 4 | 7 | 8 | 5 | 6
+4.2- 4.3 | 13 | 8 | 11 | 7 | 12 | 7 | 7 | 10 | 10
+4.4- 4.5 | 4 |  | 4 | 1 | 1 | 1 | 1 | 2 | 1
+4.6- 4.7 | 1 |  | 1 |  |  |  |  |  | 
+--- 표 9: 15행 | 
+Percent Range | 2026 | 2027 | 2028 | 2029 | Longer Run
+June projections | September projections | June projections | September projections | June projections | September projections | September projections | June projections | September projections
+1.7- 1.8 |  |  |  |  |  |  |  |  | 
+1.9- 2.0 |  |  | 2 | 1 | 12 | 6 | 17 | 18 | 18
+2.1- 2.2 |  |  | 5 | 6 | 4 | 11 |  |  | 
+2.3- 2.4 |  |  | 6 | 7 | 1 |  |  |  | 
+2.5- 2.6 |  |  | 4 | 4 |  |  |  |  | 
+2.7- 2.8 | 1 |  | 1 |  |  |  |  |  | 
+2.9- 3.0 |  | 1 |  |  |  |  |  |  | 
+3.1- 3.2 |  |  |  |  |  |  |  |  | 
+3.3- 3.4 |  | 1 |  |  |  |  |  |  | 
+3.5- 3.6 | 9 | 4 |  |  |  |  |  |  | 
+3.7- 3.8 | 5 | 12 |  |  |  |  |  |  | 
+3.9- 4.0 | 2 |  |  |  |  |  |  |  | 
+4.1- 4.2 | 1 |  |  |  |  |  |  |  | 
+--- 표 10: 12행 | 
+Percent Range | 2026 | 2027 | 2028 | 2029
+June projections | September projections | June projections | September projections | June projections | September projections | September projections
+1.7- 1.8 |  |  |  |  |  |  | 
+1.9- 2.0 |  |  | 1 |  | 8 | 4 | 16
+2.1- 2.2 |  |  | 1 | 1 | 8 | 10 | 1
+2.3- 2.4 |  |  | 7 | 6 | 1 | 3 | 
+2.5- 2.6 | 1 |  | 7 | 9 |  |  | 
+2.7- 2.8 |  | 1 | 1 | 2 |  |  | 
+2.9- 3.0 |  |  | 1 |  |  |  | 
+3.1- 3.2 | 3 | 2 |  |  |  |  | 
+3.3- 3.4 | 10 | 12 |  |  |  |  | 
+3.5- 3.6 | 4 | 3 |  |  |  |  | 
+--- 표 11: 10행 | 
+Percent Range | 2026 | 2027 | 2028 | 2029 | Longer Run
+June projections | September projections | June projections | September projections | June projections | September projections | September projections | June projections | September projections
+2.63- 2.87 |  |  |  |  |  |  |  |  | 
+2.88- 3.12 |  |  | 1 |  | 1 |  | 1 | 9 | 7
+3.13- 3.37 |  |  | 4 | 1 | 6 | 4 | 4 | 3 | 3
+3.38- 3.62 | 1 |  | 3 |  | 2 | 1 | 2 | 3 | 3
+3.63- 3.87 | 8 |  | 2 | 3 | 5 | 3 | 7 | 2 | 3
+3.88- 4.12 | 3 | 2 | 5 |  | 3 | 5 | 3 | 1 | 2
+4.13- 4.37 | 5 | 12 | 2 | 6 |  | 4 |  |  | 
+4.38- 4.62 | 1 | 4 | 1 | 8 |  |  |  |  | 
+--- 표 12: 5행 | 
+ | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 | 2029
+Actual | 5.8 | 1.3 | 3.4 | 2.4 | 2.0 | - | - | - | -
+Upper End of 70% Confidence Interval | - | - | - | - | - | 3.7 | 4.2 | 4.3 | 4.4
+Median | - | - | - | - | - | 2.3 | 2.4 | 2.2 | 2.1
+Lower End of 70% Confidence Interval | - | - | - | - | - | 0.9 | 0.6 | 0.1 | -0.2
+--- 표 13: 3행 | 
+ | Lower | Broadly Similar | Higher
+September projections | 0 | 10 | 8
+June projections | 0 | 9 | 9
+--- 표 14: 3행 | 
+ | Weighted to Downside | Broadly Balanced | Weighted to Upside
+September projections | 0 | 13 | 5
+June projections | 5 | 10 | 3
+--- 표 15: 5행 | 
+ | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 | 2029
+Actual | 4.2 | 3.6 | 3.8 | 4.1 | 4.5 | - | - | - | -
+Upper End of 70% Confidence Interval | - | - | - | - | - | 4.6 | 5.4 | 6.0 | 6.2
+Median | - | - | - | - | - | 4.1 | 4.1 | 4.1 | 4.1
+Lower End of 70% Confidence Interval | - | - | - | - | - | 3.6 | 2.8 | 2.2 | 2.0
+--- 표 16: 3행 | 
+ | Lower | Broadly Similar | Higher
+September projections | 1 | 10 | 7
+June projections | 0 | 8 | 10
+--- 표 17: 3행 | 
+ | Weighted to Downside | Broadly Balanced | Weighted to Upside
+September projections | 1 | 17 | 0
+June projections | 1 | 10 | 7
+--- 표 18: 5행 | 
+ | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 | 2029
+Actual | 5.8 | 6.0 | 2.9 | 2.6 | 2.8 | - | - | - | -
+Upper End of 70% Confidence Interval | - | - | - | - | - | 4.7 | 4.0 | 3.9 | 3.7
+Median | - | - | - | - | - | 3.7 | 2.3 | 2.1 | 2.0
+Lower End of 70% Confidence Interval | - | - | - | - | - | 2.7 | 0.6 | 0.3 | 0.3
+--- 표 19: 3행 | 
+ | Lower | Broadly Similar | Higher
+September projections | 0 | 1 | 17
+June projections | 0 | 1 | 17
+--- 표 20: 3행 | 
+ | Weighted to Downside | Broadly Balanced | Weighted to Upside
+September projections | 0 | 1 | 17
+June projections | 0 | 1 | 17
+--- 표 21: 3행 | 
+ | Lower | Broadly Similar | Higher
+September projections | 0 | 1 | 17
+June projections | 0 | 1 | 17
+--- 표 22: 3행 | 
+ | Weighted to Downside | Broadly Balanced | Weighted to Upside
+September projections | 0 | 3 | 15
+June projections | 0 | 1 | 17
+--- 표 23: 77행 | 
+SEP | Change in real GDP | Unemployment rate | PCE inflation | Core PCE inflation
+October 2007 | 0.76 | 0.53 | 0.35 | 0.06
+January 2008 | 0.88 | 0.76 | 0.29 | 0.29
+April 2008 | 0.82 | 0.71 | 0.59 | 0.41
+June 2008 | 0.76 | 0.65 | 0.82 | 0.47
+October 2008 | 1 | 0.94 | 0.65 | 0.71
+January 2009 | 1 | 1 | 0.88 | 0.88
+April 2009 | 1 | 1 | 0.82 | 0.82
+June 2009 | 0.94 | 0.94 | 0.76 | 0.76
+November 2009 | 0.94 | 0.82 | 0.76 | 0.82
+January 2010 | 0.82 | 0.71 | 0.71 | 0.76
+April 2010 | 0.71 | 0.76 | 0.71 | 0.65
+June 2010 | 0.82 | 0.76 | 0.71 | 0.65
+November 2010 | 0.89 | 0.83 | 0.72 | 0.72
+January 2011 | 0.72 | 0.67 | 0.72 | 0.67
+April 2011 | 0.59 | 0.65 | 0.71 | 0.59
+June 2011 | 0.76 | 0.76 | 0.76 | 0.65
+November 2011 | 0.94 | 0.82 | 0.65 | 0.59
+January 2012 | 0.94 | 0.82 | 0.53 | 0.47
+April 2012 | 0.76 | 0.76 | 0.47 | 0.35
+June 2012 | 0.95 | 0.95 | 0.47 | 0.37
+September 2012 | 0.89 | 0.89 | 0.37 | 0.32
+December 2012 | 0.95 | 0.89 | 0.26 | 0.26
+March 2013 | 0.63 | 0.63 | 0.16 | 0.16
+June 2013 | 0.37 | 0.32 | 0.16 | 0.16
+September 2013 | 0.24 | 0.24 | 0.12 | 0.12
+December 2013 | 0.18 | 0.18 | 0 | 0
+March 2014 | 0.12 | 0.12 | 0.06 | 0.06
+June 2014 | 0.19 | 0.12 | 0.12 | 0.12
+September 2014 | 0.24 | 0.24 | 0.06 | 0.06
+December 2014 | 0.06 | 0.12 | 0.24 | 0.12
+March 2015 | 0.12 | 0.12 | 0.24 | 0.18
+June 2015 | 0.18 | 0.12 | 0.18 | 0.06
+September 2015 | 0.12 | 0.06 | 0.18 | 0.18
+December 2015 | 0.12 | 0.06 | 0.12 | 0.12
+March 2016 | 0 | 0 | 0.12 | 0.06
+June 2016 | 0.18 | 0.06 | 0.06 | 0
+September 2016 | 0 | 0 | 0.12 | -0.06
+December 2016 | 0.35 | 0.29 | 0.24 | 0.18
+March 2017 | 0.29 | 0.24 | 0.18 | 0.18
+June 2017 | 0.12 | 0 | 0 | 0
+September 2017 | 0.12 | 0 | 0 | 0
+December 2017 | 0.12 | 0.12 | 0 | 0
+March 2018 | 0.07 | 0.07 | 0 | 0
+June 2018 | 0.07 | 0.07 | 0.07 | 0.07
+September 2018 | 0.12 | 0.19 | 0.06 | 0.06
+December 2018 | 0.18 | 0.29 | 0.06 | 0.06
+March 2019 | 0.18 | 0.24 | 0.12 | 0.12
+June 2019 | 0.35 | 0.47 | 0.18 | 0.18
+September 2019 | 0.35 | 0.47 | 0.24 | 0.24
+December 2019 | 0.24 | 0.24 | 0.12 | 0.12
+June 2020 | 1 | 1 | 1 | 1
+September 2020 | 1 | 1 | 0.94 | 0.94
+December 2020 | 0.94 | 0.94 | 0.82 | 0.82
+March 2021 | 0.83 | 0.89 | 0.89 | 0.89
+June 2021 | 0.83 | 0.89 | 1 | 1
+September 2021 | 0.94 | 0.89 | 1 | 1
+December 2021 | 0.94 | 0.94 | 1 | 1
+March 2022 | 0.94 | 0.88 | 1 | 1
+June 2022 | 1 | 0.94 | 1 | 1
+September 2022 | 1 | 1 | 1 | 1
+December 2022 | 0.95 | 0.89 | 1 | 1
+March 2023 | 1 | 0.94 | 0.94 | 0.94
+June 2023 | 0.78 | 0.78 | 0.83 | 0.83
+September 2023 | 0.74 | 0.63 | 0.79 | 0.79
+December 2023 | 0.79 | 0.68 | 0.79 | 0.79
+March 2024 | 0.63 | 0.53 | 0.74 | 0.74
+June 2024 | 0.53 | 0.53 | 0.84 | 0.84
+September 2024 | 0.42 | 0.58 | 0.42 | 0.42
+December 2024 | 0.47 | 0.42 | 0.74 | 0.74
+--- 표 24: 77행 | 
+SEP | Change in real GDP | Unemployment rate | PCE inflation | Core PCE inflation
+October 2007 | -0.76 | 0.71 | 0.47 | 0.41
+January 2008 | -0.71 | 0.76 | 0.35 | 0.29
+April 2008 | -0.76 | 0.71 | 0.47 | 0.41
+June 2008 | -0.82 | 0.82 | 0.76 | 0.53
+October 2008 | -0.82 | 0.88 | -0.29 | -0.18
+January 2009 | -0.81 | 0.88 | -0.44 | -0.44
+April 2009 | -0.65 | 0.71 | -0.24 | -0.24
+June 2009 | -0.41 | 0.41 | -0.06 | -0.06
+November 2009 | -0.06 | 0.18 | 0 | -0.06
+January 2010 | -0.06 | 0.18 | 0.06 | 0.06
+April 2010 | 0.18 | 0.06 | 0 | 0
+June 2010 | -0.53 | 0.47 | -0.18 | -0.18
+November 2010 | -0.33 | 0.5 | -0.17 | -0.17
+January 2011 | 0.11 | 0.11 | 0.06 | 0.06
+April 2011 | -0.12 | 0.06 | 0.47 | 0.35
+June 2011 | -0.65 | 0.53 | 0.29 | 0.24
+November 2011 | -0.65 | 0.65 | -0.06 | -0.06
+January 2012 | -0.65 | 0.59 | 0 | 0
+April 2012 | -0.47 | 0.53 | 0.18 | 0.12
+June 2012 | -0.79 | 0.68 | -0.16 | -0.16
+September 2012 | -0.74 | 0.68 | -0.05 | -0.05
+December 2012 | -0.68 | 0.68 | -0.05 | -0.05
+March 2013 | -0.42 | 0.32 | -0.11 | -0.11
+June 2013 | -0.37 | 0.32 | -0.16 | -0.16
+September 2013 | -0.47 | 0.24 | -0.24 | -0.24
+December 2013 | -0.12 | 0.06 | -0.18 | -0.18
+March 2014 | -0.12 | 0 | -0.25 | -0.25
+June 2014 | -0.25 | 0.06 | -0.12 | -0.12
+September 2014 | -0.18 | -0.06 | -0.24 | -0.24
+December 2014 | -0.12 | -0.06 | -0.29 | -0.24
+March 2015 | -0.24 | 0 | -0.41 | -0.41
+June 2015 | -0.24 | 0.06 | -0.24 | -0.24
+September 2015 | -0.41 | 0.29 | -0.47 | -0.47
+December 2015 | -0.12 | 0 | -0.41 | -0.47
+March 2016 | -0.47 | 0.12 | -0.65 | -0.59
+June 2016 | -0.35 | 0.18 | -0.35 | -0.35
+September 2016 | -0.18 | 0.06 | -0.24 | -0.24
+December 2016 | 0.18 | -0.18 | 0.06 | 0.06
+March 2017 | 0.18 | -0.24 | 0.18 | 0.18
+June 2017 | 0.06 | -0.12 | -0.06 | -0.06
+September 2017 | 0 | -0.06 | -0.19 | -0.19
+December 2017 | 0.19 | -0.19 | 0 | 0
+March 2018 | 0.2 | -0.27 | 0.2 | 0.2
+June 2018 | 0.07 | -0.07 | 0.07 | 0.07
+September 2018 | 0.06 | -0.06 | 0.19 | 0.19
+December 2018 | -0.12 | -0.06 | 0.06 | 0.06
+March 2019 | -0.24 | 0.06 | -0.18 | -0.18
+June 2019 | -0.82 | 0.71 | -0.53 | -0.53
+September 2019 | -0.76 | 0.53 | -0.29 | -0.29
+December 2019 | -0.53 | 0.47 | -0.35 | -0.35
+June 2020 | -0.71 | 0.71 | -0.76 | -0.76
+September 2020 | -0.65 | 0.65 | -0.59 | -0.59
+December 2020 | -0.29 | 0.41 | -0.47 | -0.47
+March 2021 | 0.06 | -0.06 | 0.22 | 0.22
+June 2021 | 0.06 | -0.06 | 0.72 | 0.72
+September 2021 | -0.22 | 0.06 | 0.72 | 0.72
+December 2021 | -0.22 | 0.06 | 0.83 | 0.83
+March 2022 | -0.56 | 0.5 | 1 | 1
+June 2022 | -0.67 | 0.72 | 0.89 | 0.89
+September 2022 | -0.89 | 0.95 | 0.89 | 0.89
+December 2022 | -0.89 | 0.89 | 0.84 | 0.84
+March 2023 | -0.94 | 0.89 | 0.61 | 0.61
+June 2023 | -0.5 | 0.61 | 0.67 | 0.72
+September 2023 | -0.37 | 0.47 | 0.74 | 0.74
+December 2023 | -0.16 | 0.42 | 0.37 | 0.42
+March 2024 | 0.05 | 0.16 | 0.58 | 0.58
+June 2024 | -0.16 | 0.21 | 0.58 | 0.53
+September 2024 | -0.32 | 0.63 | 0.16 | 0.16
+December 2024 | -0.16 | 0.37 | 0.79 | 0.79
+--- 표 25: 5행 | 
+ | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 | 2029
+Actual | 0.1 | 4.4 | 5.4 | 4.4 | 3.6 | - | - | - | -
+Upper End of 70% Confidence Interval | - | - | - | - | - | 4.6 | 5.8 | 6.2 | 6.4
+Median | - | - | - | - | - | 4.1 | 4.1 | 3.9 | 3.6
+Lower End of 70% Confidence Interval* | - | - | - | - | - | 3.6 | 2.4 | 1.6 | 0.8
+--- 표 26: 5행 | 
+Variable | 2026 | 2027 | 2028 | 2029
+Change in real GDP1 | ±1.4 | ±1.8 | ±2.1 | ±2.3
+Unemployment rate1 | ±0.5 | ±1.3 | ±1.9 | ±2.1
+Total consumer prices2 | ±1.0 | ±1.7 | ±1.8 | ±1.7
+Short-term interest rates3 | ±0.5 | ±1.7 | ±2.3 | ±2.8

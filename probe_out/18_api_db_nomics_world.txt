@@ -1,0 +1,5 @@
+URL: https://api.db.nomics.world/v22/search?q=personal%20consumption%20expenditures%20price%20underlying%20detail&limit=10
+MODE: head
+OK: 184바이트, 0.6초
+
+{"_meta":{"args":{"limit":10,"offset":0,"q":"personal consumption expenditures price underlying detail"},"version":"22.1.17"},"results":{"docs":[],"limit":10,"num_found":0,"offset":0}}
