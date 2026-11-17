@@ -164,56 +164,155 @@
   }
 
   /* ---------- 통화정책 ---------- */
+  const BANK_INFO = {
+    bok: { short: '한국은행', full: '금융통화위원회 통화정책방향 결정회의', color: '--bank-bok',
+      note: '결정 발표는 회의 당일 오전 (총재 기자간담회 오전 11시대)' },
+    fed: { short: 'FOMC', full: '미 연방공개시장위원회 (연준)', color: '--bank-fed',
+      note: '성명 미 동부 14:00 → 한국 시간 다음 날 새벽 4시(서머타임 3시)' },
+    boj: { short: 'BOJ', full: '일본은행 금융정책결정회합', color: '--bank-boj',
+      note: '결정 발표는 2일차 정오 전후 (한국 시간) · 표시 금리는 콜금리로 추정한 정책금리' },
+    ecb: { short: 'ECB', full: '유럽중앙은행 정책이사회 (통화정책회의)', color: '--bank-ecb',
+      note: '결정 CET 14:15 → 한국 시간 밤 10:15(서머타임 9:15) · 표시 금리는 수신금리(DFR)' },
+  };
+  const BANK_ORDER = ['bok', 'fed', 'boj', 'ecb'];
+  const WEEK = ['일', '월', '화', '수', '목', '금', '토'];
+  const utc = (iso) => new Date(iso + 'T00:00:00Z');
+  const monthDay = (iso) => { const d = utc(iso); return (d.getUTCMonth() + 1) + '/' + d.getUTCDate() + '(' + WEEK[d.getUTCDay()] + ')'; };
+  const meetingSpan = (m) => {
+    if (m.start === m.date) return monthDay(m.date);
+    const e = utc(m.date);
+    return monthDay(m.start) + '~' + (m.start.slice(0, 7) === m.date.slice(0, 7) ? e.getUTCDate() + '(' + WEEK[e.getUTCDay()] + ')' : monthDay(m.date));
+  };
+  const todayKst = () => new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+  const dday = (iso, today) => { const n = Math.round((utc(iso) - utc(today)) / 864e5); return n === 0 ? 'D-DAY' : 'D-' + n; };
+  const pillTabs = (items, current, onPick) => {
+    const box = h('div', { class: 'tabs', role: 'group' });
+    items.forEach((it) => {
+      const b = h('button', { class: 'tab', type: 'button', 'aria-pressed': String(it.id === current), text: it.label });
+      b.addEventListener('click', () => {
+        box.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+        b.setAttribute('aria-pressed', 'true');
+        onPick(it.id);
+      });
+      box.append(b);
+    });
+    return box;
+  };
+
   function buildCbank(view, D) {
-    const today = new Date().toISOString().slice(0, 10);
-    const banks = h('div', { class: 'banks' });
-    for (const b of (D.cbank && D.cbank.banks) || []) {
-      const past = b.meetings.filter((m) => m.date < today).slice(-5);
-      const next = b.meetings.filter((m) => m.date >= today).slice(0, 4);
-      const item = (m, isNext) => h('li', { class: isNext ? 'next' : null },
-        h('span', { class: 'when', text: m.date }),
-        h('span', null, m.sep ? h('span', { class: 'tag', text: '전망 발표' }) : null),
-        h('span', { class: 'what', text: m.result ? m.result + (m.chg_bp ? ' ' + signed(m.chg_bp, 0) + 'bp' : '') + (m.rate ? ' · ' + m.rate : '') + (m.estimated ? ' (추정)' : '')
-          : (m.date < today ? '결과 확인 중' : isNext ? '다음 회의' : '예정') }));
-      banks.append(h('div', { class: 'bank' },
-        h('h3', { text: b.name }),
-        h('p', { class: 'rate' }, b.rate || '–', h('small', { text: ' ' + b.rate_name + (b.rate_asof ? ' · ' + b.rate_asof : '') })),
-        h('ul', null, past.map((m) => item(m, false)), next.map((m, i) => item(m, i === 0)))));
-    }
-    view.append(banks);
-    view.append(h('p', { class: 'note', text: '결과는 성명서가 아니라 공식 금리 시계열의 변화로 판정합니다. 일본은행은 정책금리 대신 회의 전후 콜금리 수준 변화로 추정한 값입니다.' }));
+    const today = todayKst();
+    const thisYear = today.slice(0, 4);
+    const all = (D.cbank && D.cbank.banks) || [];
+    const banks = BANK_ORDER.map((code) => all.find((b) => b.code === code)).filter(Boolean);
+    if (!banks.length) { view.append(empty('아직 받은 일정이 없습니다.')); return; }
+    const st = D._status && D._status.sources.cbank;
+    const asof = st && st.checked_at ? new Date(st.checked_at).toLocaleDateString('sv-SE', { timeZone: 'Asia/Seoul' }) : today;
+    view.append(h('div', { class: 'chipline' },
+      h('span', { class: 'infochip', text: '일정 기준: ' + asof + ' · 각 은행 공식 발표 일정 (결정 발표일은 회의 마지막 날)' }),
+      h('button', { class: 'btn', type: 'button', text: '일정·점도표 새로고침', on: { click: () => $('refresh').click() } })));
+
+    const nextOf = (b) => b.meetings.find((m) => m.date >= today);
+    let years = Array.from(new Set(banks.flatMap((b) => b.meetings.map((m) => m.date.slice(0, 4))))).sort()
+      .filter((y) => y >= thisYear && banks.filter((b) => b.meetings.some((m) => m.date.startsWith(y))).length >= 2).slice(0, 2);
+    if (!years.length) years = [thisYear];
+
+    const grid = h('div', { class: 'bankgrid' });
+    const drawYear = (year) => {
+      grid.textContent = '';
+      banks.forEach((b) => {
+        const info = BANK_INFO[b.code];
+        const next = nextOf(b);
+        const rows = b.meetings.filter((m) => m.date.startsWith(year)).map((m, i) => {
+          const isNext = next && m.date === next.date;
+          const kind = m.result === '인상' ? 'hike' : m.result === '인하' ? 'cut' : 'hold';
+          return h('li', { class: isNext ? 'next' : null },
+            h('span', { class: 'idx', text: String(i + 1) }),
+            h('span', { class: 'when', text: meetingSpan(m) }),
+            m.result ? h('span', { class: 'pill ' + kind }, h('b', { text: m.result }), m.rate ? ' ' + m.rate : '')
+              : (m.date < today ? h('span', { class: 'pill wait', text: '결과 확인 중' }) : null),
+            m.sep ? h('span', { class: 'mtag', text: 'SEP' }) : null,
+            m.outlook ? h('span', { class: 'mtag', text: '전망보고서' }) : null,
+            m.effective ? h('span', { class: 'eff', text: '발효 ' + (+m.effective.slice(5, 7)) + '/' + (+m.effective.slice(8, 10)) }) : null,
+            isNext ? h('span', { class: 'dday soft', text: dday(m.date, today) }) : null);
+        });
+        grid.append(h('section', { class: 'bankcard', style: 'border-top-color:var(' + info.color + ')' },
+          h('div', { class: 'bankcard-head' },
+            h('div', { class: 'bankcard-title' }, h('h3', { text: info.short }), b.rate ? h('span', { class: 'now', text: '현재 ' + b.rate }) : null),
+            h('p', { class: 'full', text: info.full }), h('p', { class: 'memo', text: info.note })),
+          rows.length ? h('ol', { class: 'meet' }, rows) : h('p', { class: 'memo pad', text: year + '년 일정은 아직 발표되지 않았습니다.' })));
+      });
+    };
+    view.append(pillTabs(years.map((y) => ({ id: y, label: y + '년' })), years[0], drawYear));
+
+    const chips = h('div', { class: 'nextchips' });
+    banks.forEach((b) => {
+      const n = nextOf(b);
+      if (!n) return;
+      chips.append(h('span', { class: 'nextchip' },
+        h('i', { class: 'bdot', style: 'background:var(' + BANK_INFO[b.code].color + ')' }),
+        h('b', { text: BANK_INFO[b.code].short }), h('span', { text: meetingSpan(n) }),
+        h('span', { class: 'dday', text: dday(n.date, today) })));
+    });
+    view.append(chips, grid);
+    drawYear(years[0]);
+    view.append(h('p', { class: 'note', text: '결과는 성명서가 아니라 공식 금리 시계열의 변화로 판정합니다. 일본은행 금리는 회의 전후 콜금리 수준으로 추정한 값입니다.' }));
 
     const seps = (D.dots && D.dots.seps) || [];
     if (!seps.length) return;
+    const fed = banks.find((b) => b.code === 'fed');
+    const sepLabel = (x) => (x.meeting.slice(0, 4) === thisYear ? '' : "'" + x.meeting.slice(2, 4) + ' ') + x.label;
     const body = h('div');
-    const fed = ((D.cbank && D.cbank.banks) || []).find((b) => b.code === 'fed');
+    const source = h('p', { class: 'sub' });
     const draw = (key) => {
       const i = seps.findIndex((x) => x.meeting === key);
       const sep = seps[i], before = seps[i - 1];
+      source.textContent = '출처: 연준 SEP 전망자료 (federalreserve.gov) · ' + sep.meeting + ' FOMC 발표 · 분기(3·6·9·12월)';
       body.textContent = '';
       let current = null;
       if (i === seps.length - 1 && fed && fed.rate) {
         const m = /([\d.]+)~([\d.]+)/.exec(fed.rate);
         if (m) current = (+m[1] + +m[2]) / 2;
       }
-      const chips = h('div', { class: 'tiles' });
+      const guide = h('ul');
+      guide.append(
+        h('li', null, h('b', { text: '점 1개' }), ' = FOMC 참가자 1명이 적정하다고 본 해당 연도 말 ', h('b', { text: '정책금리' }), '(목표범위 중간값). 3·6·9·12월 회의마다 발표'),
+        h('li', null, '핵심은 ', h('b', { text: '중앙값(굵은 선)의 이동' }), ' — 위 탭으로 직전 SEP와 견주면 위원들의 금리 경로 전망이 어느 쪽으로 움직였는지 보임'),
+        h('li', null, h('b', { text: '장기(Longer run)' }), ' = 경기를 부양하지도 긴축하지도 않는 ', h('b', { text: '중립금리' }), '에 대한 판단'));
+      if (before) {
+        const moves = [];
+        let up = 0, down = 0;
+        sep.years.forEach((year, k) => {
+          const old = before.medians[before.years.indexOf(year)], now = sep.medians[k];
+          if (old == null || now == null) return;
+          moves.push(year + ' ' + fmt(old, 1) + '→' + fmt(now, 1));
+          if (now > old) up += 1; else if (now < old) down += 1;
+        });
+        const verdict = !up && !down ? '변화 없음' : !down ? '전반 상향' : !up ? '전반 하향' : '엇갈림';
+        guide.append(h('li', null, '직전(' + sepLabel(before) + ') 대비 중앙값: ', h('b', { text: moves.join(' · ') + ' — ' + verdict })));
+      }
+      const most = Math.max(...sep.participants);
+      const short = sep.years.filter((y, k) => sep.participants[k] < most);
+      guide.append(h('li', { text: '참가자 ' + most + '명' + (short.length ? ' — ' + (most - Math.min(...sep.participants)) + '명은 ' + short.join('·') + ' 미제출' : '') }));
+      const chipsRow = h('div', { class: 'tiles' });
       sep.years.forEach((year, k) => {
         const old = before ? before.medians[before.years.indexOf(year)] : null;
         const d = old != null && sep.medians[k] != null ? sep.medians[k] - old : null;
-        chips.append(tile(year + (year === '장기' ? '' : '년 말') + ' 중앙값', fmt(sep.medians[k], 1), '%',
+        chipsRow.append(tile(year + (year === '장기' ? '' : '년 말') + ' 중앙값', fmt(sep.medians[k], 1), '%',
           d == null ? '직전 전망 없음' : '직전 대비 ' + signed(d, 1) + '%p'));
       });
       const box = h('div');
-      body.append(chips, box, h('details', { class: 'more' }, h('summary', { text: '수치 표' }),
-        TT.table([{ label: '연도' }, { label: '중앙값', num: true }, { label: '중심 경향', num: true }, { label: '전체 범위', num: true }, { label: '참가자 수', num: true }],
-          sep.years.map((year, k) => [year, { text: fmt(sep.medians[k], 1), cls: 'strong' }, sep.ct[k] || '–', sep.range[k] || '–', sep.participants[k]]))));
+      body.append(h('div', { class: 'guidebox' }, h('h4', { text: '차트 읽는 법 — 연준 위원들이 보는 적정 금리 경로' }), guide), chipsRow, box,
+        h('details', { class: 'more' }, h('summary', { text: '수치 표' }),
+          TT.table([{ label: '연도' }, { label: '중앙값', num: true }, { label: '중심 경향', num: true }, { label: '전체 범위', num: true }, { label: '참가자 수', num: true }],
+            sep.years.map((year, k) => [year, { text: fmt(sep.medians[k], 1), cls: 'strong' }, sep.ct[k] || '–', sep.range[k] || '–', sep.participants[k]]))));
       TT.dotPlot(box, { years: sep.years, bins: sep.bins, medians: sep.medians, current });
     };
     const firstKey = seps[seps.length - 1].meeting;
-    const seg = TT.segmented(seps.slice().reverse().map((x) => ({ id: x.meeting, label: x.meeting.slice(0, 7) })), firstKey, draw);
     view.append(h('section', { class: 'card' },
-      h('div', { class: 'card-head' }, h('div', null, h('h3', { text: '연준 점도표' }),
-        h('p', { class: 'sub', text: 'FOMC 참가자가 적정하다고 본 연말 연방기금금리 (점 하나가 한 명, 굵은 선이 중앙값)' })), seg), body));
+      h('div', { class: 'card-head' },
+        h('div', null, h('h3', { text: '연준 점도표 — 정책금리 전망 분포 (SEP)' }), source),
+        pillTabs(seps.map((x) => ({ id: x.meeting, label: sepLabel(x) })), firstKey, draw)),
+      body));
     requestAnimationFrame(() => draw(firstKey));
   }
 

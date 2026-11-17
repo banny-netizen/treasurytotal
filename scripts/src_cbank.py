@@ -4,13 +4,14 @@
 결과   공식 금리 시계열의 변화로 판정한다 (성명서 문구를 읽지 않는다)
          연준 목표범위 상단  FRED DFEDTARU / 하단 DFEDTARL
          ECB 수신금리        ECB Data API (변경일)
-         일본 콜금리(TONA)   일본은행 API — 정책금리 대신 회의 전후 콜금리 수준 변화로 추정
+         일본 콜금리(TONA)   일본은행 API — 회의 전후 콜금리 수준으로 정책금리를 추정
          한국 기준금리       한국은행 ECOS
 점도표 연준 경제전망(SEP) 표의 Figure 2 분포와 Table 1의 연방기금금리 행
 """
 from __future__ import annotations
 
 import calendar
+import math
 import os
 import re
 import time
@@ -104,7 +105,10 @@ def parse_boj(html: str) -> list[dict]:
             start = date(int(year.group(1)), month, int(match.group(2)))
             end_month = month_number(match.group(3)) if match.group(3) else month
             end = date(int(year.group(1)), end_month, int(match.group(4) or match.group(2)))
-            meetings.append({"start": start.isoformat(), "date": end.isoformat()})
+            meeting = {"start": start.isoformat(), "date": end.isoformat()}
+            if len(row) > 1 and row[1][0].strip() not in ("", "-", "--"):
+                meeting["outlook"] = True          # 전망보고서(Outlook Report)를 내는 회의
+            meetings.append(meeting)
     return meetings
 
 
@@ -177,6 +181,17 @@ def ecb_results(meetings: list[dict], dfr: list, today: date) -> None:
         m.update(judge_step(before, after))
         if after is not None:
             m["rate"] = f"{after:.2f}%"
+        limit = (end + timedelta(days=10)).isoformat()
+        step = next((day for day, _ in dfr if m["date"] < day <= limit), None)
+        if step and m.get("chg_bp"):
+            m["effective"] = step                 # 바뀐 금리가 적용되는 날
+        else:
+            m.pop("effective", None)
+
+
+def policy_from_call(rate: float) -> float:
+    """콜금리(TONA) 수준에서 일본은행 정책금리를 추정한다. 콜금리는 정책금리보다 2~3bp 낮게 형성된다."""
+    return round(math.ceil(rate / 0.05 - 1e-6) * 0.05, 2)
 
 
 def boj_results(meetings: list[dict], tona: list, today: date) -> None:
@@ -189,9 +204,9 @@ def boj_results(meetings: list[dict], tona: list, today: date) -> None:
         if len(before) < 2 or len(after) < 2:
             continue
         b, a = sum(before) / len(before), sum(after) / len(after)
-        bp = round((a - b) * 100 / 5) * 5 if abs(a - b) >= 0.10 else 0
+        bp = round((policy_from_call(a) - policy_from_call(b)) * 100) if abs(a - b) >= 0.10 else 0
         m.update({"result": "동결" if bp == 0 else ("인상" if bp > 0 else "인하"), "chg_bp": bp,
-                  "rate": f"콜금리 {a:.2f}%", "estimated": True})
+                  "rate": f"{policy_from_call(a):.2f}%", "estimated": True})
 
 
 def bok_results(meetings: list[dict], today: date, warnings: list[str]) -> None:
@@ -363,9 +378,9 @@ def collect(today: date, previous: dict) -> dict:
         boj_series["tona"] = src_rates.parse_boj(common.fetch_json(url))
         boj_results(meetings, boj_series["tona"], today)
 
-    bank("boj", "일본은행 (BOJ)", "무담보 콜 익일물(TONA)",
+    bank("boj", "일본은행 (BOJ)", "정책금리(콜금리로 추정)",
          lambda: parse_boj(common.fetch_text(BOJ_URL)), boj_fill,
-         lambda: (f"{boj_series['tona'][-1][1]:.3f}%", boj_series["tona"][-1][0]))
+         lambda: (f"{policy_from_call(boj_series['tona'][-1][1]):.2f}%", boj_series["tona"][-1][0]))
 
     # 한국은행
     bok_meetings: list = []

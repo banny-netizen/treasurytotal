@@ -247,14 +247,29 @@ class CentralBankTest(unittest.TestCase):
         past = [{"start": "2026-09-09", "date": "2026-09-10"}, {"start": "2026-10-28", "date": "2026-10-29"}]
         src_cbank.ecb_results(past, [["2026-06-17", 2.25], ["2026-09-16", 2.5]], TODAY)
         self.assertEqual((past[0]["result"], past[0]["chg_bp"], past[0]["rate"]), ("인상", 25, "2.50%"))
+        self.assertEqual(past[0]["effective"], "2026-09-16")
         self.assertEqual(past[1]["result"], "동결")
+        self.assertNotIn("effective", past[1])
 
     def test_boj(self):
         meetings = src_cbank.parse_boj(text("boj_schedule.html"))
-        self.assertEqual(meetings[0], {"start": "2026-01-22", "date": "2026-01-23"})
+        self.assertEqual(meetings[0], {"start": "2026-01-22", "date": "2026-01-23", "outlook": True})
         self.assertIn({"start": "2026-12-17", "date": "2026-12-18"}, meetings)
-        self.assertIn({"start": "2027-01-21", "date": "2027-01-22"}, meetings)
+        self.assertIn(("2027-01-21", "2027-01-22"), [(m["start"], m["date"]) for m in meetings])
         self.assertEqual(len(meetings), 16)
+        # 전망보고서는 1·4·7·10월 회의에서 나온다
+        self.assertEqual([m["date"][5:7] for m in meetings if m["date"] < "2027" and m.get("outlook")],
+                         ["01", "04", "07", "10"])
+
+    def test_boj_policy_estimate(self):
+        self.assertEqual(src_cbank.policy_from_call(1.227), 1.25)
+        self.assertEqual(src_cbank.policy_from_call(0.977), 1.0)
+        self.assertEqual(src_cbank.policy_from_call(0.727), 0.75)
+        tona = ([[f"2026-09-{d:02d}", 0.977] for d in (9, 10, 11, 14, 15, 16)]
+                + [[f"2026-09-{d:02d}", 1.227] for d in (24, 25, 28, 29)])
+        meetings = [{"start": "2026-09-17", "date": "2026-09-18"}]
+        src_cbank.boj_results(meetings, tona, TODAY)
+        self.assertEqual((meetings[0]["result"], meetings[0]["chg_bp"], meetings[0]["rate"]), ("인상", 25, "1.25%"))
 
     def test_bok_year_by_weekday(self):
         meetings = src_cbank.parse_bok(text("bok_schedule.html"), TODAY)
